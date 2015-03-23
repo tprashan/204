@@ -1,0 +1,242 @@
+> "-bytes".match(/\-/)
+[ '-', index: 0, input: '-bytes' ]
+> var a="-bytes".match(/\-/)
+undefined
+> a
+[ '-', index: 0, input: '-bytes' ]
+> var a="bytes".match(/\-/)
+undefined
+> a
+null
+> var a="--bytes".match(/\-/)
+undefined
+> a
+[ '-', index: 0, input: '--bytes' ]
+> var a="--bytes".match(/\-|\[a-z]/)
+undefined
+> a
+[ '-', index: 0, input: '--bytes' ]
+> var a="bytes".match(/\-|\[a-z]/)
+undefined
+> a
+null
+> var a="---bytes".match(/\-|\[a-z]/)
+undefined
+>
+undefined
+> var a="---bytes".match(/\-|\[a-z]/)
+undefined
+> a
+[ '-',
+  index: 0,
+  input: '---bytes' ]
+> var a="---".match(/\-|\[a-z]/)
+undefined
+> a
+[ '-', index: 0, input: '---' ]
+> var a="---".match(/\-/)
+undefined
+> a
+[ '-', index: 0, input: '---' ]
+> var a="--bytes".match(/\-$|[a-z]$/)
+undefined
+> a
+[ 's', index: 6, input: '--bytes' ]
+> var a="--bytes".match(/\-$|--$/)
+undefined
+> a
+null
+> var a="--bytes".match(/\-/)
+undefined
+> a
+[ '-', index: 0, input: '--bytes' ]
+> var a="--bytes".match(/\d/)
+undefined
+> a
+null
+> var a="--byt20".match(/\d/)
+undefined
+> a
+[ '2', index: 5, input: '--byt20' ]
+> var a="--byt20".match(/\d/g)
+undefined
+> a
+[ '2', '0' ]
+> var a="--byt20".match(/\D/g)
+undefined
+> a
+[ '-',
+  '-',
+  'b',
+  'y',
+  't' ]
+> var a="by--tes".match(/\-/)
+undefined
+> a
+[ '-', index: 2, input: 'by--tes' ]
+> var a="by--tes".match(/^-/)
+undefined
+> a
+null
+> var a="-hi".match(/^-/)
+undefined
+> a
+[ '-', index: 0, input: '-hi' ]
+> var a="--hi".match(/^-/)
+undefined
+> var a="-hi".match(/-$/)
+undefined
+> a
+null
+> var a="-hi--".match(/-$/)
+undefined
+> a
+[ '-', index: 4, input: '-hi--' ]
+> var a="-hi--".match(/^- | -$/)
+undefined
+> a
+null
+> var a="-hi--".match(/^-|-$/)
+undefined
+> a
+[ '-', index: 0, input: '-hi--' ]
+> var a="-hi--".match(/^[0-9]|[$/)
+SyntaxError: Invalid regular expression: m
+    at REPLServer.self.eval (repl.js:110:2
+    at repl.js:249:20
+    at REPLServer.self.eval (repl.js:122:7
+    at Interface.<anonymous> (repl.js:239:
+    at Interface.emit (events.js:95:17)
+    at Interface._onLine (readline.js:202:
+    at Interface._line (readline.js:531:8)
+    at Interface._ttyWrite (readline.js:76
+    at ReadStream.onkeypress (readline.js:
+    at ReadStream.emit (events.js:98:17)
+> var a="-hi--".match(/^[0-9]|[$/)
+SyntaxError: Invalid regular expression: m
+    at REPLServer.self.eval (repl.js:110:2
+    at repl.js:249:20
+    at REPLServer.self.eval (repl.js:122:7
+    at Interface.<anonymous> (repl.js:239:
+    at Interface.emit (events.js:95:17)
+    at Interface._onLine (readline.js:202:
+    at Interface._line (readline.js:531:8)
+    at Interface._ttyWrite (readline.js:76
+    at ReadStream.onkeypress (readline.js:
+    at ReadStream.emit (events.js:98:17)
+> var a="-hi--".match(/^[0-9]/)
+undefined
+> a
+null
+> var a="1-hi--".match(/^[0-9]/)
+undefined
+> a
+[ '1', index: 0, input: '1-hi--' ]
+> var a="1-hi--".match(/^[0-9]|[0-9]$/)
+undefined
+> a
+[ '1', index: 0, input: '1-hi--' ]
+> var a="-hi-123".match(/^[0-9]|[0-9]$/)
+undefined
+> a
+[ '3', index: 6, input: '-hi-123' ]
+> var a="-hi-123".match(/^[a-z]|[a-z]$/)
+undefined
+> var a="hi-123".match(/^[a-z]|[a-z]$/)
+undefined
+> a
+[ 'h', index: 0, input: 'hi-123' ]
+> var a="hi-123".match(/^[a-z]|[a-z]$/gi)
+undefined
+> var a="HI-123".match(/^[a-z]|[a-z]$/gi)
+undefined
+> a
+[ 'H' ]
+> a
+[ 'H' ]
+> var a="hi-123".match(/^[a-z]|[a-z]$/gi)
+undefined
+> a
+[ 'h' ]
+> var a="hi-123".match(/[a-z]|[a-z]$/gi)
+undefined
+> a
+[ 'h', 'i' ]
+> var a="--bytes".match(/^-|--|[a-z]/)
+undefined
+> a
+[ '-', index: 0, input: '--bytes' ]
+> var a="--bytes-".match(/^-|--|[a-z]/)
+undefined
+> a
+[ '-',
+  index: 0,
+  input: '--bytes-' ]
+> var a="--bytes-".match(/^-|^--|[a-z]$/)
+undefined
+> a
+[ '-',
+  index: 0,
+  input: '--bytes-' ]
+> var a="--bytes-".match(/^-[a-z]$|^--|[a-
+undefined
+> a
+[ '--',
+  index: 0,
+  input: '--bytes-' ]
+> var a="--bytes-".match(/^-[a-z]$|^--[a-z
+undefined
+> a
+null
+> var a="--bytes".match(/^-[a-z]$|^--[a-z]
+undefined
+> a
+null
+> var a="--bytes".match(/^-|^[a-z]$/)
+undefined
+> a
+[ '-', index: 0, input: '--bytes' ]
+> var a="--bytes".match(/^-&^[a-z]$/)
+undefined
+> a
+null
+> var a="--bytes".match(/^-&[a-z]$/)
+undefined
+> a
+null
+> var a="--bytes".match(/^-|[a-z]$/)
+undefined
+> a
+[ '-', index: 0, input: '--bytes' ]
+> var a="--bytes-".match(/^-|[a-z]$/)
+undefined
+> a
+[ '-',
+  index: 0,
+  input: '--bytes-' ]
+> var a="--bytes-".match(/^-&[a-z]$/)
+undefined
+> a
+null
+> var a="--bytes".match(/^-&[a-z]$/)
+undefined
+> a
+null
+> var a="--bytes".match(/^-&[a-z]$/i)
+undefined
+> a
+null
+> var a="--bytes".match(/^-&[a-z]$/gi)
+undefined
+> a
+null
+
+////////////////////////////////////////////////////////////// if(flags.length==0){
+                                                            //  result.push(head.giveText(file));
+                                                            // }
+                                                            // else if(charOptions.indexOf(flag)>=0){
+                                                            //  result.push(head.giveTextAccordingValueOfChars(file,flagDigit)) ;
+                                                            // }
+                                                            // else if(lineOptions.indexOf(flag)>=0){
+                                                            //  result.push(head.giveTextAccordingValueOfLines(file,flagDigit)) ;
+                                                            // }
