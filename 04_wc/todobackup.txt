@@ -1,0 +1,185 @@
+////*******************************Acceptance Tests*******************************************\\\\\\\\
+
+1."wc command should show us the line word character."
+
+  ex-node wc
+	 dogs cows
+     1234
+       	  2       3      15
+
+2."wc command should show us the line, word and character of a specific file."
+
+    ex-	node wc one.txt 
+        	  2      10      48 one.txt
+
+
+3."wc command should show us only all the characters when we use wc command with this (-c) and print the byte counts."
+
+    ex-1 node wc -c
+         dog can fly
+          12
+
+4."wc command should show us only all the characters of one.txt file when we use wc command with this(-c)."
+
+    ex-  node wc one.txt -c  
+          48 one.txt
+
+5."wc command should show us only all the characters of one.txt file when we use wc command with this (--bytes)."
+
+    ex-3 node wc one.txt --bytes 
+          48 one.txt
+
+6."wc command should show us only all the characters of one.txt file when we use wc command with this (--char)."  
+
+    ex-4 node wc one.txt -char 
+          48 one.txt
+
+7."wc command should show us all the line when we use wc command with this (-l) and print the newline counts."
+	
+	ex-1 node wc -l
+         dog can fly
+         cow can fly
+          2
+
+8."wc command should show us all the line in one.txt file when we use wc command with this (-l)."
+
+    ex-2 node wc one.txt -l 
+          2 one.txt;
+
+9."wc command should show us all the line in one.txt when we use wc command with this (-lines) ."
+
+    ex-3 node wc one.txt --lines 
+          2 one.txt ;    
+
+
+10."wc command should show us only  the length of the longest line when we use wc command with these (-L)."
+
+	ex-1 node wc -L
+         asdfghjkl
+         qwertyuiop
+         zxcvbnm           
+          10;
+
+11."wc command should show us the length of the longest line in one.txt file when we use wc command with this (-L)."
+
+    ex-2 node wc one.txt -L 
+          26 one.txt;
+
+12."wc command should show us only  the length of the longest line in one.txt file when we use wc command with this     --max-line-length."
+
+    ex-3 node wc one.txt --max-line-length 
+          26 one.txt;
+
+13."wc command should show us all the words when we use wc command with this (-w) and print the word counts."
+
+	 ex-1 node wc -w
+          asdfg qw
+           2
+
+14."wc command should show us all the words in one.txt file when we use wc command with this (-w) and print the word counts."
+
+    ex-1 node wc one.txt -w
+				10 one.txt
+
+15."wc command should show us all the words in one.txt file when we use wc command with this (--words) and print the word counts."
+
+    ex-1 node wc one.txt --words
+				10 one.txt;
+
+16."we can use wc command in a different way like wc [option] [file] and it should give same result as                 wc [file] [option] gave."
+
+    ex-1 node wc --words one.txt
+        10 one.txt;
+
+17."wc command should show output version information and exit when we called wc --version"
+
+	ex-1 node --version should show like 
+		 wc (GNU textutils) 2.0
+		 Written by Prashant Tripathi.
+
+		 Copyright (C) 2014 Free Software Foundation, Inc.
+		 This is free software; see the source for copying conditions.  There is NO
+		 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+18."wc command should show all the things that are given below when we called wc --help"
+
+	ex-1 wc --help
+ 		 Usage: wc [OPTION]... [FILE]...
+ 		 Print line, word, and byte counts for each FILE, and a total l
+ 		 more than one FILE is specified.  With no FILE, or when FILE i
+ 		 read standard input.
+  		  -c, --bytes, --chars   print the byte counts
+  		  -l, --lines            print the newline counts
+   		  -L, --max-line-length  print the length of the longest line
+        ☐ -w, --words            print the word counts
+  		      --help             display this help and exit
+   		     --version          output version information and exit.
+
+
+/////***************************************To Do*******************************************\\\\\
+
+"Make a wc command which shows lines, word and charcter with its sub-command" 
+ 
+
+1.Get code scaffold ready------------------------------------------------------------------------------------------[5 min]                                                                          
+   ✔ folder, bash, sublime, runtest, wc, one.txt, test @done (14-09-24 10:28)
+
+2.take filename or text from user.---------------------------------------------------------------------------------[30 min]
+  *wc should take any file name or text .
+
+3.create a function that check the user input is valid.------------------------------------------------------------[30 min]
+  *I have to use existsSync(filename) command to find the file is in current directory or not.
+
+4.create a function that read the file and take text from it.------------------------------------------------------[10 min]
+  *I have to use readFileSync(file) command and use utf8 to retrive text from file.
+
+5.create a function that go through the text and count the characters of that given text.--------------------------[30 min]
+  *take text split it and go through each char and count every time.
+
+6.create a function that count the word of that given text .-------------------------------------------------------[30 min]
+  *take text split it and go through each word and count every time.
+
+7.create a function that count (\n) and give number of the line of that given text.--------------------------------[40 min]
+  *I have split text on (\n) and count the length.
+
+8.create a function that count the length of lines of that given text for finding the longest line.----------------[30 min]
+  *go through each line and find the length of every line and compare them and find the longest line.
+
+9.create a function that help the user and show all the options of wc with its work.-------------------------------[30 min]
+  *print text file content that gives all information about wc --help command.
+
+10.implement option(-c) so that when it call it give only count of character.--------------------------------------[45 min]
+  *I have to read file contant using readFileSync(filename) and find the length of text and print it.
+
+11.implement option(--bytes) so that when it call it give only count of character.---------------------------------[45 min]
+  *I have to read file contant using readFileSync(filename) and find the length of text and print it.
+
+12.implement option(-chars) so that when it call it give  only count of character.---------------------------------[40 min]
+  *I have to read file contant using readFileSync(filename) and find the length of text and print it.
+
+13.implement option(-l) so that when it call it give  only count of lines.-----------------------------------------[40 min]
+  *I have to split text on (\n) and count it and print the count.
+
+14.implement option(--lines) so that when it call it give  only count of lines.------------------------------------[30 min]
+  *I have to split text on (\n) and count it and print the count.
+
+15.implement option(-w) so that when it call it give  only count of word.------------------------------------------[45 min]
+  *I have to split the text on space and filter extra space and count the words.
+
+16.implement option(--words) so that when it call it give  only count of words.------------------------------------[30 min]
+  *I have to split the text on space and filter extra space and count the words.
+
+
+
+
+17.implement option(-L) so that when it call it give  only count of character of longest line.----------------------[45 min]
+  *I have to split text on (\n) and reduce it and find longest line and print the count of line.
+
+18.implement option(--max-line-length) so that when it call it give only count of character of longestline.---------[30 min]
+  *I have to split text on (\n) and reduce it and find longest line and print the count of line.
+
+19.create a function that give the path of a file.------------------------------------------------------------------[20 min]
+  *I have to use fs.realpathSync("file_name") to find the path of file. 
+                                                          
+
