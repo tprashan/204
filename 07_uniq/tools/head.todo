@@ -1,0 +1,228 @@
+////*******************************Acceptance Tests*******************************************\\\\\\\\
+ 1."Head command should show us maximum 10 line in a file when no option is given.
+     Print first 10 lines of each FILE to standard output."
+
+    ex- node head.js ../test/integration/one.txt
+        hello, this is a good day.
+        What do you think?
+
+2."Head command should show us character when -cSize_ option is used with number."
+
+     ex- node head.js ../test/integration/three.txt -c10
+          dfgd gdsgd
+
+
+3."Head command should show us character when --bytes=Size_ option  is used with number."
+
+     ex- node head.js ../test/integration/three.txt --bytes=Size
+          dfgd gdsgd
+
+4."Head command should show us character when --b=Size_ or --by=Size or --byt==Size etc. option  is used with number."
+
+     ex- node head.js ../test/integration/three.txt --byt=Size
+          dfgd gdsgd
+
+5."Head command should  print first NUMBER lines instead of first 10 when -n or --lines=Size option is given."
+
+    ex-  node head.js ../test/integration/three.txt -n5
+         dfgd gdsgdsg
+
+                            gdsgdsf gdsg
+
+         gdsg        gdsgdsg
+
+6."Head command should show us first NUMBER lines when --lines=Size_ option  is used with number."  
+
+    ex-  node head.js ../test/integration/three.txt --lines=5
+         dfgd gdsgdsg
+
+                            gdsgdsf gdsg
+
+         gdsg        gdsgdsg
+
+7."Head command should show us first NUMBER lines when --l=Size_ or --li=Size or --lin=Size etc. option  is used with number."
+  
+    ex-  node head.js ../test/integration/three.txt --lin=5
+         dfgd gdsgdsg
+
+                            gdsgdsf gdsg
+
+         gdsg        gdsgdsg
+
+8."Head command should show us max 10 line of three.txt file and max 10 lines of one.txt with file name on header when we use Head command with multiple files."
+
+    ex-   node head.js three.txt one.txt
+          ==> three.txt <==
+          dfgd gdsgdsg
+
+                             gdsgdsf gdsg
+
+          gdsg        gdsgdsg
+          ytu6ru6 iytuyt uyfytfyucxgyy uytyuyt
+          ytyuy7tu iuytgiytg ulytiuh
+          uyruyk ijyutguktf
+
+          rdrytfv  i7tuy uyft'vc
+
+          ==> one.txt <==
+          hello, this is a good day.
+          What do you think?
+
+9.""Head command should show us max 10 line of three.txt file and max 10 lines of one.txt with file name on header when we use Head command with multiple files and should work with options."
+
+    ex-   node head.js three.txt one.txt -n5
+          ==> three.txt <==
+          dfgd gdsgdsg
+
+                             gdsgdsf gdsg
+
+          gdsg        gdsgdsg
+
+          ==> one.txt <==
+          hello, this is a good day.
+          What do you think?
+
+10."Head command should  never print headers giving file names when use  -q, --quiet, --silent these options."
+
+  ex-   node head.js three.txt one.txt -q
+        dfgd gdsgdsg
+
+                           gdsgdsf gdsg
+
+        gdsg        gdsgdsg
+        ytu6ru6 iytuyt uyfytfyucxgyy uytyuyt
+        ytyuy7tu iuytgiytg ulytiuh
+        uyruyk ijyutguktf
+
+        rdrytfv  i7tuy uyft'vc
+        hello, this is a good day.
+        What do you think?
+
+11."Head command should  never print headers giving file names when use  -q, --quiet, --silent these options."
+
+  ex-   node head.js three.txt one.txt --quiet
+        dfgd gdsgdsg
+
+                           gdsgdsf gdsg
+
+        gdsg        gdsgdsg
+        ytu6ru6 iytuyt uyfytfyucxgyy uytyuyt
+        ytyuy7tu iuytgiytg ulytiuh
+        uyruyk ijyutguktf
+
+        rdrytfv  i7tuy uyft'vc
+        hello, this is a good day.
+        What do you think?
+
+
+12."Head command should  never print headers giving file names when use  -q, --qui, --silent these options."
+
+    ex-   node head.js three.txt one.txt --qui
+          dfgd gdsgdsg
+
+                             gdsgdsf gdsg
+
+          gdsg        gdsgdsg
+          ytu6ru6 iytuyt uyfytfyucxgyy uytyuyt
+          ytyuy7tu iuytgiytg ulytiuh
+          uyruyk ijyutguktf
+
+          rdrytfv  i7tuy uyft'vc
+          hello, this is a good day.
+          What do you think?
+
+13."Head command should show  always print headers giving file names when -v, --verbose option is used."
+
+   ex-    node head.js one.txt -v
+          ==> one.txt <==
+          hello, this is a good day.
+          What do you think?
+
+14."Head command should show  always print headers giving file names when -v, --verbose option is used."
+
+    ex-   node head.js one.txt --verbose
+          ==> one.txt <==
+          hello, this is a good day.
+          What do you think?
+
+15."Head command should show  always print headers giving file names when -v, or --ve or --ver or --verb etc. option is used."
+
+    ex-   node head.js one.txt --ver
+          ==> one.txt <==
+          hello, this is a good day.
+          What do you think?
+
+
+
+16."Head command should show output version information and exit when we called Head --version"
+
+  ex-  node head.js --version should show like 
+       Head (GNU textutils) 2.0
+       Written by Prashant Tripahead (GNU textutils) 2.0
+
+      Copyright (C) 1999 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.  There is NO
+      warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+17."Head command should show all the things that are given below when we called Head --help"
+
+     ex-  node head.js --help
+                Usage: head [OPTION]... [FILE]...
+          Print first 10 lines of each FILE to standard output.
+          With more than one FILE, precede each with a header giving the file name.
+          With no FILE, or when FILE is -, read standard input.
+
+            -c, --bytes=SIZE         print first SIZE bytes
+            -n, --lines=NUMBER       print first NUMBER lines instead of first 10
+            -q, --quiet, --silent    never print headers giving file names
+            -v, --verbose            always print headers giving file names
+                --help               display this help and exit
+                --version            output version information and exit
+
+          SIZE may have a multiplier suffix: b for 512, k for 1K, m for 1 Meg.
+          If -VALUE is used as first OPTION, read -c VALUE when one of
+          multipliers bkm follows concatenated, else read -n VALUE.
+
+
+
+          /////***************************************To Do*******************************************\\\\\
+
+"Make a wc command which shows lines, word and charcter with its sub-command" 
+ 
+
+1.Get code scaffold ready------------------------------------------------------------------------------------------[5 min]                                                                          
+   folder, bash, sublime, runtest, head, one.txt, test @done (14-09-24 10:28)
+
+2.take filename or text from user.---------------------------------------------------------------------------------[30 min]
+  *wc should take any file name or text .
+
+3.create a function that check the user input is valid.------------------------------------------------------------[30 min]
+  *I have to use existsSync(filename) command to find the file is in current directory or not.
+
+4.create a function that read the file and take text from it.------------------------------------------------------[10 min]
+  *I have to use readFileSync(file) command and use utf8 to retrive text from file.
+
+5.Count the characters of that given text.--------------------------[30 min]
+  *take text from user.
+  *read the text that is give by user.
+  *seperate that text .
+  *count the length of the text.
+  *display the length.                                                
+
+6.create a function that count the word of that given text .-------------------------------------------------------[30 min]
+  *take text from user.
+  *read the text that is give by user.
+  *seperate that text from space.
+  *On seperated text reduce space word.
+  *count the length of that seperated text.
+  *Display the length.
+
+7.create a function that count (\n) and give number of the line of that given text.--------------------------------[40 min]
+  *take text from user.
+  *read the text that is give by user.
+  *seperate that text from (\n).
+  *count the length of that seperated text.
+  *Display the length..
+
+8.create a function that count the length of lines of that given text for finding the longest line.----------------[30 min]
