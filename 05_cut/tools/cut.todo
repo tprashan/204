@@ -1,0 +1,22 @@
+////*******************************Acceptance Tests*******************************************\\\\\\\\
+1."Cut command should not work with without option and show a error msg."
+
+    ex- $ cut.js src/uniqfile.txt
+        cut: you must specify a list of bytes,
+        Try `cut --help' for more information.
+
+2."Cut command should show only those character which we pass as value with -c option."
+
+     ex-   cut.js src/uniqfile.txt -c2
+            r
+            r
+            r
+            r
+            s
+
+
+3."Cut command should show both char. when we pass 2 value with -c option."
+    ex-  cut src/uniqfile.txt -c2,5
+         rh
+         rh
+         rh
